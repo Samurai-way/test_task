@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {Input} from "../input/Input";
+import {ResponseType} from "../types/Types";
 
 type MainPropsType = {
-    rates: any
+    rates: ResponseType[]
 }
 
 export const Main = ({rates}: MainPropsType) => {
@@ -19,29 +20,29 @@ export const Main = ({rates}: MainPropsType) => {
     }, [rates])
 
     const handleAmount1Change = (amount1: any) => {
-        const value1 = (rates.filter((item: any) => item.cc === currency2))
-        const value2 = (rates.filter((item: any) => item.cc === currency1))
+        const value1 = (rates.filter((item) => item.cc === currency2))
+        const value2 = (rates.filter((item) => item.cc === currency1))
         setAmount2(amount1 * value2[0]?.rate / value1[0]?.rate)
         setAmount1(amount1)
     }
 
     const handleCurrency1Change = (currency1: any) => {
-        const value1 = (rates.filter((item: any) => item.cc === currency2))
-        const value2 = (rates.filter((item: any) => item.cc === currency1))
+        const value1 = (rates.filter((item) => item.cc === currency2))
+        const value2 = (rates.filter((item) => item.cc === currency1))
         setAmount2(amount1 * value2[0]?.rate / value1[0]?.rate)
         setCurrency1(currency1)
     }
 
     const handleAmount2Change = (amount2: any) => {
-        const value1 = (rates.filter((item: any) => item.cc === currency2))
-        const value2 = (rates.filter((item: any) => item.cc === currency1))
+        const value1 = (rates.filter((item) => item.cc === currency2))
+        const value2 = (rates.filter((item) => item.cc === currency1))
         setAmount1((amount2 * value1[0]?.rate / value2[0]?.rate).toFixed(4))
         setAmount2(amount2)
     }
 
     const handleCurrency2Change = (currency2: any) => {
-        const value1 = (rates.filter((item: any) => item.cc === currency2))
-        const value2 = (rates.filter((item: any) => item.cc === currency1))
+        const value1 = (rates.filter((item) => item.cc === currency2))
+        const value2 = (rates.filter((item) => item.cc === currency1))
         setAmount1((amount2 * value1[0]?.rate / value2[0]?.rate).toFixed(4))
         setCurrency2(currency2)
     }
@@ -51,16 +52,16 @@ export const Main = ({rates}: MainPropsType) => {
         <main>
             <Input
                 amount={amount1}
-                carrencies={rates.map((item: any) => item.cc)}
+                carrencies={rates.map((item) => item.cc)}
                 currency={currency1}
                 onAmountChange={handleAmount1Change}
-                onCurrencyChange={handleCurrency1Change} />
+                onCurrencyChange={handleCurrency1Change}/>
             <Input
                 amount={amount2}
-                carrencies={rates.map((item: any) => item.cc)}
+                carrencies={rates.map((item) => item.cc)}
                 currency={currency2}
                 onAmountChange={handleAmount2Change}
-                onCurrencyChange={handleCurrency2Change} />
+                onCurrencyChange={handleCurrency2Change}/>
         </main>
     );
 };

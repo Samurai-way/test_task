@@ -4,22 +4,25 @@ import axios from "axios";
 import {Main} from "./components/main/Main";
 import {Footer} from './components/footer/Footer';
 import {Header} from "./components/header/Header";
+import {ResponseType} from "./components/types/Types";
+
 
 function App() {
 
-    const [rates, setRates] = useState<any>([])
+    const [rates, setRates] = useState<Array<any>>([])
 
     useEffect(() => {
-        axios.get("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json")
+        axios.get<ResponseType[]>("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json")
             .then(res => {
-            res.data.filter((item: any) => item.cc === "USD" || item.cc === "EUR")
-            const result = [...res.data.filter((item: any) => item.cc === "USD" || item.cc === "EUR"), {
-                txt: 'Гривня',
-                rate: 1,
-                cc: 'UAN'
-            }]
-            setRates(result)
-        })
+                debugger
+                res.data.filter((item) => item.cc === "USD" || item.cc === "EUR")
+                const result = [...res.data.filter((item) => item.cc === "USD" || item.cc === "EUR"), {
+                    txt: 'Гривня',
+                    rate: 1,
+                    cc: 'UAN'
+                }]
+                setRates(result)
+            })
     }, [])
 
     return (
