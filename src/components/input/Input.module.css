@@ -1,0 +1,49 @@
+.group {
+    background-color: gray;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 20px;
+}
+
+.group:last-child {
+    margin-left: 20px;
+}
+
+.icon {
+    width: 60px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+input {
+    color: #fff;
+    display: block;
+    border: none;
+    padding: 0;
+    width: 13.5ch;
+    background: repeating-linear-gradient(
+            90deg,
+            dimgrey 0,
+            dimgrey 1ch,
+            transparent 0,
+            transparent 1.5ch
+    )
+    0 100%/ 14ch 2px no-repeat;
+    font: 4ch droid sans mono, consolas, monospace;
+    letter-spacing: 0.5ch;
+}
+input:focus {
+    outline: none;
+    color: #ff7f4f;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+select {
+    border-radius: 10px;
+    margin-left: 10px;
+}
