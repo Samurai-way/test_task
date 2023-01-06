@@ -1,7 +1,6 @@
 .container{
     height: 560px;
-    /*background-color: let(--main-background-color);*/
-    /*color: var(--main-color);*/
+    background-color: #aaaab0;
     display: flex;
     justify-content: center;
     align-items: center;

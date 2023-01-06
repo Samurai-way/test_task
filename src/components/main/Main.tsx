@@ -37,8 +37,13 @@ export const Main = ({dollar, euro}: Currency) => {
     }
 
     const onChangeHandler = (e: any) => {
-        setSecond(e.currentTarget.value)
+        setSecond(e.target.value)
         calculate2(e)
+    }
+
+    const onChangeInputHandler = (e: any) => {
+        setFirst(e.target.value)
+        calculate1(e)
     }
 
     return <div className={styles.container}>
@@ -49,10 +54,7 @@ export const Main = ({dollar, euro}: Currency) => {
                    value={first}
                    placeholder="input currency"
                    defaultValue={first}
-                   onChange={(e: any) => {
-                       setFirst(e.target.value)
-                       calculate1(e)
-                   }}
+                   onChange={onChangeInputHandler}
             />
             <select onChange={(e) => {
                 setOption1(e.target.value)

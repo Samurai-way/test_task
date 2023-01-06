@@ -1,8 +1,8 @@
 .container{
     width: 100%;
-    background-color: var(--header-background-color);
-    border: 5px solid var(--header-border-color);
-    color: var(--header-color);
+    background-color: rgba(4, 248, 146, 0.63);
+    border: 5px solid black;
+    color: #1a1919;
 }
 .currency_holder{
     height: 80px;
@@ -19,9 +19,7 @@
 .ua:hover{
     transform: scale(1.1, 1.1)
 }
-.icon{
 
-}
 .uahrevert{
     transform: scale(1, -1)
 }
