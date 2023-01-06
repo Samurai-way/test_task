@@ -1,37 +1,23 @@
 import React from 'react';
 import styles from './Header.module.css'
-import {ResponseType} from "../types/Types";
 
-type HeaderPropsType = {
-    rates: ResponseType[]
-}
+interface Currency {
+    dollar: number;
+    euro: number;
+};
 
-export const Header = ({rates}: HeaderPropsType) => {
+export const Header = ({dollar, euro}: Currency) => {
 
-    const result = rates.slice(0, 2);
 
-    return (
-        <header>
-            <div className={styles.logo__wrapper}>
-                {/*<a href='/'>*/}
-                {/*    /!*<svg className={styles.log__icon}>*!/*/}
-                {/*    /!*    /!*<use href={'sprite' + "#icon-piggy-bank-svgrepo-com"}/>*!/*!/*/}
-                {/*    /!*</svg>*!/*/}
-                {/*</a>*/}
-                <p className={styles.logo__description}>Currency Exchange</p>
+    return <div className={styles.container}>
+        <div className={styles.currency_holder}>
+            <div className={styles.ua}>
+                1 (USD) = {dollar} (UAH)
             </div>
-            <ul className={styles.rates__list}>
-                {result.map(({txt, rate, cc}) => <li className={styles.rates__item} key={txt}>
-                    <div className={styles.wrapper}>
-                        <p><b>{txt}</b></p>
-                        <p>1 UAN = {rate} {cc}</p>
-                    </div>
-                    {/*{cc === "USD" && <svg className={styles.icon}>*/}
-                    {/*    <use href={'sprite' + "#icon-united-states-flag-icon"}/>*/}
-                    {/*</svg>}*/}
-                </li>)}
-            </ul>
-        </header>
-    );
+            <div className={styles.ua}>
+                1 (EUR) = {euro} (UAH)
+            </div>
+        </div>
+    </div>
 };
 

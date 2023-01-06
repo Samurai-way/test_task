@@ -1,62 +1,37 @@
-header {
-    background-color: gray;
-    display: flex;
-    align-items: center;
-    width: 100vw;
-    height: 60px;
-}
-
-.wrapper {
-    display: flex;
-}
-
-.icon {
-    width: 50px;
-    height: 50px;
-}
-
-.rates__list {
-    display: flex;
+.container{
     width: 100%;
-    color: #fff;
+    background-color: var(--header-background-color);
+    border: 5px solid var(--header-border-color);
+    color: var(--header-color);
 }
-
-.rates__item {
-    border: 1px solid #ff7f4f;
-    border-radius: 10px;
+.currency_holder{
+    height: 80px;
     display: flex;
     align-items: center;
-    width: 100%;
-
-    margin: 5px 20px;
-
+    justify-content: center;
+    font-size: 28px;
+}
+.ua{
+    margin: 0 5%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 }
-
-.rates__item .wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+.ua:hover{
+    transform: scale(1.1, 1.1)
 }
+.icon{
 
-.rates__item .icon {
-    align-items: center;
 }
-
-.logo__wrapper {
-    padding-left: 20px;
-    display: flex;
+.uahrevert{
+    transform: scale(1, -1)
 }
-
-.log__icon {
-    width: 50px;
-    height: 50px;
+@media(max-width: 920px){
+    .currency_holder{
+        font-size: 20px;
+    }
 }
-
-.logo__description {
-    font-family: "Permanent Marker", cursive;
-    padding-left: 10px;
-    font-size: 18px;
-    color: #fff;
+@media(max-width: 650px){
+    .currency_holder{
+        font-size: 16px;
+    }
 }
